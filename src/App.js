@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import AddReview from "./features/reviews/AddReview";
+import EditReview from "./features/reviews/EditReview";
+import ReviewList from "./features/reviews/ReviewList";
+
+import Navbar from "./components/Navbar";
+import "./App.css"
+
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <h1 className="header__h1">REVIEW SITE</h1>
+
+      <Routes>
+        <Route path="/" element={<ReviewList />} />
+        <Route path="/add-review" element={<AddReview />} />
+        <Route path="/edit-review/:id" element={<EditReview />} />
+      </Routes>
+
+      
     </div>
   );
 }
